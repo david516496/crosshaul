@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cross Haul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE local trade with a premium, automotive edge
+   IDEA a truck showroom at night: dark stage, one bright working colour
+   PICTURE the off-road pickup towing a loaded dump trailer on a dark stage with a floor line
+   COLOUR near-black #0b0c0e, panel #141619, ink #f4f4f5, safety orange #ff7a2f
+   TYPE Inter Tight 800 + Inter
+   LAYOUT huge title across the top, lead and buttons in a row, truck stage below; phone stacks */
+:root{color-scheme:dark;--bg:#0b0c0e;--panel:#141619;--line:#222429;--line2:#3f3f46;--ink:#f4f4f5;--soft:#a1a1aa;--ac:#ff7a2f;--acink:#0b0c0e}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:max(4vw,16px)}
+.sec{padding-block:clamp(56px,7vw,104px);border-top:1px solid var(--line)}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
+h1{font-size:clamp(44px,7vw,84px);letter-spacing:-.04em;max-width:15ch}
+h2{font-size:clamp(32px,4.2vw,52px)}
+h3{font-size:21px;letter-spacing:-.02em;line-height:1.15}
+p{margin:0}
+.soft{color:var(--soft)}
+nav{position:sticky;top:0;z-index:5;background:rgba(11,12,14,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;font:800 19px "Inter Tight",Inter,sans-serif;text-decoration:none;margin-right:auto}
+.links{display:flex;flex-wrap:wrap;gap:4px 24px}
+.links a{text-decoration:none;color:var(--soft);font-size:15px;padding:8px 0}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:10px;border:1px solid var(--ac);background:var(--ac);color:var(--acink);font:600 16px Inter,sans-serif;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;border-color:var(--line2);color:var(--ink)}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost:hover{border-color:var(--ink)}
+a:focus-visible,.btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.hero{padding-block:clamp(48px,6vw,88px) clamp(48px,6vw,80px);display:grid;gap:26px}
+.row{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.lead{font-size:19px;color:var(--soft);max-width:34em}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(28px,5vw,56px) clamp(16px,3vw,36px) clamp(20px,3vw,28px);overflow:hidden;margin-top:12px}
+.stage .floor{position:absolute;left:0;right:0;height:1px;background:#2a2d33}
+.stage svg{position:relative;display:block;width:100%;max-width:1000px;height:auto;margin:0 auto}
+.facts{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.facts div{border-top:1px solid var(--line2);padding-top:14px}
+.facts b{display:block;font:800 22px "Inter Tight",Inter,sans-serif;letter-spacing:-.02em}
+.facts span{font-size:14px;color:var(--soft)}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:36px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(22px,3vw,32px);display:grid;gap:12px;align-content:start}
+.card p,.card li{color:var(--soft);font-size:16px}
+.tag{justify-self:start;background:rgba(255,122,47,.14);color:var(--ac);font-size:14px;font-weight:600;padding:5px 12px;border-radius:999px}
+.card ul{margin:4px 0 0;padding-left:20px;display:grid;gap:6px}
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 56px;margin-top:32px}
+.lists ul{list-style:none;margin:14px 0 0;padding:0}
+.lists li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;color:var(--soft)}
+.lists li:before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ac)}
+.lists .no li:before{background:transparent;border:1.5px solid var(--soft)}
+.small{font-size:15px;color:var(--soft);margin-top:18px}
+.route{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
+.route:before{content:"";position:absolute;left:12px;right:12px;top:11px;height:2px;background:var(--line2)}
+.stop{position:relative;display:grid;gap:8px;padding-top:44px}
+.stop:before{content:"";position:absolute;top:0;left:0;width:24px;height:24px;border-radius:50%;background:var(--bg);border:2px solid var(--ac)}
+.stop:last-child:before{background:var(--ac)}
+.stop p{color:var(--soft);font-size:16px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:clamp(28px,5vw,72px);align-items:start}
+.split .intro{display:grid;gap:18px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line2);border-radius:999px;padding:7px 14px;font-size:15px;color:var(--soft)}
+details{border-bottom:1px solid var(--line);padding:4px 0}
+summary{cursor:pointer;font:800 21px "Inter Tight",Inter,sans-serif;letter-spacing:-.02em;padding:14px 0;min-height:44px}
+details p{color:var(--soft);padding-bottom:16px;max-width:46em}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,32px)}
+label{display:grid;gap:7px;font-weight:500;font-size:15px;color:var(--soft)}
+.full{grid-column:1/-1}
+input,select,textarea{font:16px Inter,sans-serif;color:var(--ink);background:#0f1113;border:1px solid var(--line2);border-radius:10px;padding:12px 14px;min-height:50px;width:100%}
+textarea{min-height:130px;resize:vertical}
+::placeholder{color:#6b6b74}
+.out{grid-column:1/-1;display:none;gap:12px;border-top:1px solid var(--line2);padding-top:18px}
+.out.on{display:grid}
+.out pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;background:#0f1113;border:1px solid var(--line);border-radius:10px;padding:14px;font:15px/1.5 Inter,sans-serif;color:var(--ink)}
+.note{font-size:15px;color:var(--soft)}
+footer{border-top:1px solid var(--line);padding-block:48px}
+footer .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+footer p{font-size:14px;color:var(--soft)}
+.calc{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-top:36px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:clamp(18px,3vw,30px);display:grid;gap:22px}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.opts{display:grid;gap:8px}
+.pill{display:flex;align-items:center;gap:12px;border:1px solid var(--line2);border-radius:12px;padding:12px 14px;min-height:50px;cursor:pointer;color:var(--ink);font-weight:500;font-size:16px}
+.pill input{accent-color:var(--ac);width:18px;height:18px;min-height:0;padding:0;margin:0;flex:none}
+.pill:has(input:checked){border-color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent)}
+.pill .p{margin-left:auto;color:var(--soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+.ttl{position:sticky;top:90px}
+.big{font:800 clamp(40px,6vw,64px)/1 "Inter Tight",Inter,sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.lines div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:9px 0;color:var(--soft);font-size:15px}
+.lines b{color:var(--ink);white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums}
+.fine{font-size:14px;color:var(--soft)}
+@media(max-width:860px){.calc{grid-template-columns:1fr}.ttl{position:static}}
+.nowrap{white-space:nowrap}
+@media(max-width:860px){.two,.split{grid-template-columns:1fr}}
+@media(max-width:600px){.facts,.lists,form,footer .wrap{grid-template-columns:1fr}.route{grid-template-columns:1fr;gap:0}.route:before{left:11px;right:auto;top:12px;bottom:12px;width:2px;height:auto}.stop{padding:0 0 28px 44px}}
+@media(prefers-reduced-motion:no-preference){.rig{animation:roll 1.2s ease-out both}@keyframes roll{from{transform:translateX(-80px)}to{transform:none}}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#top" aria-label="Cross Haul home"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><rect x="14" y="2" width="4" height="28" rx="2" fill="#ff7a2f" transform="rotate(45 16 16)"/><rect x="14" y="2" width="4" height="28" rx="2" fill="#f4f4f5" transform="rotate(-45 16 16)"/></svg>Cross Haul</a>
+  <div class="links"><a href="#options">Services</a><a href="#what">What we take</a><a href="#how">How it works</a><a href="#area">Area</a><a href="#estimate">Estimate</a></div>
+  <a class="btn" href="#quote" style="min-height:44px">Get a quote</a>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <h1>Clear it out. We haul it away.</h1>
+  <div class="row">
+    <p class="lead">Dump trailer rentals and junk removal across Ontario and the Inland Empire. We drop it off, you load it, we take it to the dump. Or we load it for you.</p>
+    <div class="acts"><a class="btn" href="#quote">Get a quote</a><a class="btn ghost" href="tel:+14422471212"><span class="nowrap">(442) 247-1212</span></a></div>
+  </div>
+  <div class="stage">
+    <svg viewBox="280 180 790 220" role="img" aria-label="Off-road pickup towing a loaded dump trailer">
+      <rect x="280" y="384" width="790" height="1" fill="#2a2d33"/>
+      <ellipse cx="660" cy="386" rx="390" ry="8" fill="#000" opacity=".5"/>
+      <g class="rig">
+        <rect x="598" y="322" width="64" height="8" fill="#000"/>
+        <rect x="300" y="252" width="300" height="84" rx="6" fill="#26282c"/>
+        <rect x="300" y="300" width="300" height="5" fill="#ff7a2f"/>
+        <path d="M318 252 l18 -38 h14 l-14 38z" fill="#7a6a58"/>
+        <rect x="360" y="210" width="96" height="44" rx="10" fill="#4b5850"/>
+        <rect x="468" y="218" width="48" height="36" rx="4" fill="#5b5b60"/>
+        <circle cx="560" cy="236" r="20" fill="#3d5c39"/>
+        <circle cx="420" cy="350" r="28" fill="#050505"/><circle cx="420" cy="350" r="12" fill="#71717a"/>
+        <circle cx="486" cy="350" r="28" fill="#050505"/><circle cx="486" cy="350" r="12" fill="#71717a"/>
+        <path d="M660 262 H806 L812 222 Q814 214 824 214 H912 Q920 214 924 222 L962 264 L1028 266 Q1042 267 1042 280 V320 H660Z" fill="#4a5058"/>
+        <rect x="660" y="262" width="146" height="2" fill="#8b929b"/><rect x="962" y="264" width="66" height="2" fill="#8b929b"/>
+        <rect x="660" y="259" width="146" height="5" fill="#1b1d20"/>
+        <path d="M818 262 L825 226 H866 V262Z" fill="#11161b"/><path d="M874 262 V226 H908 L942 262Z" fill="#11161b"/>
+        <rect x="869" y="228" width="2" height="86" fill="#2a2e33"/>
+        <rect x="846" y="274" width="16" height="4" rx="2" fill="#1b1d20"/><rect x="914" y="274" width="16" height="4" rx="2" fill="#1b1d20"/>
+        <rect x="896" y="208" width="6" height="6" rx="1" fill="#ffb347"/><rect x="906" y="208" width="6" height="6" rx="1" fill="#ffb347"/><rect x="916" y="208" width="6" height="6" rx="1" fill="#ffb347"/>
+        <path d="M978 266 L986 255 H1012 L1017 266Z" fill="#1b1d20"/>
+        <rect x="1034" y="272" width="10" height="38" rx="2" fill="#0a0a0b"/><rect x="1024" y="272" width="18" height="7" rx="2" fill="#fff1c2"/>
+        <rect x="660" y="270" width="7" height="22" fill="#ef2b35"/>
+        <path d="M1018 310 H1052 V330 H1030 L1020 324Z" fill="#151619"/>
+        <rect x="646" y="306" width="18" height="20" fill="#151619"/>
+        <rect x="800" y="320" width="150" height="7" rx="3" fill="#151619"/>
+        <path d="M674 322 Q678 290 722 288 Q766 290 770 322Z" fill="#141518"/><path d="M904 322 Q908 290 952 288 Q996 290 1000 322Z" fill="#141518"/>
+        <circle cx="722" cy="344" r="40" fill="#050505"/><circle cx="722" cy="344" r="22" fill="#1f2124"/><circle cx="722" cy="344" r="17" fill="#71717a"/><circle cx="722" cy="344" r="5" fill="#1f2124"/>
+        <circle cx="952" cy="344" r="40" fill="#050505"/><circle cx="952" cy="344" r="22" fill="#1f2124"/><circle cx="952" cy="344" r="17" fill="#71717a"/><circle cx="952" cy="344" r="5" fill="#1f2124"/>
+      </g>
+    </svg>
+    <div class="facts"><div><b>Drop-off and pickup</b><span>Included in every rental</span></div><div><b>Driveway friendly</b><span>Boards under the jack stand</span></div><div><b>Quoted by the load</b><span>Send photos, get a price</span></div></div>
+  </div>
+</header>
+
+<section class="sec" id="options"><div class="wrap">
+  <h2>Two ways to clear it out</h2>
+  <div class="two">
+    <div class="card"><span class="tag">You load</span><h3>Dump trailer drop-off</h3><p>Best for remodels, yard projects and move-outs where you want to work at your own pace.</p>
+      <ul><li>We deliver the trailer to your driveway or job site</li><li>Load it over a few days</li><li>We haul it to the dump or transfer station and recycle what we can</li><li>Weight limits apply to heavy material like dirt, concrete and roofing</li></ul></div>
+    <div class="card"><span class="tag">We load</span><h3>Full-service junk removal</h3><p>Best for garages, furniture, appliances and cleanouts when you don't want to lift a thing.</p>
+      <ul><li>We arrive, load and sweep up</li><li>Priced by how much of the trailer you fill</li><li>Usable furniture goes to donation where possible</li><li>Single items to whole-house cleanouts</li></ul></div>
+  </div>
+</div></section>
+
+<section class="sec" id="what"><div class="wrap">
+  <h2>What we take</h2>
+  <div class="lists">
+    <div><h3>Yes</h3><ul>
+      <li>Furniture, mattresses and household junk</li><li>Remodel debris: drywall, wood, cabinets, flooring</li><li>Yard waste, branches and old fencing</li><li>Garage and storage-unit cleanouts</li><li>Appliances (ask us about fridges and AC units)</li></ul></div>
+    <div class="no"><h3>No</h3><ul>
+      <li>Paint, solvents, oil and chemicals</li><li>Batteries and propane tanks</li><li>Tires</li><li>Asbestos or anything that may contain it</li><li>Medical waste</li></ul></div>
+  </div>
+  <p class="small">Not sure about something? Send a photo with your quote request and we'll tell you.</p>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+  <h2>How it works</h2>
+  <div class="route">
+    <div class="stop"><h3>Send photos</h3><p>Use the form below or call. A few photos are enough for a price.</p></div>
+    <div class="stop"><h3>We show up</h3><p>We drop the trailer or arrive with the crew on the day you pick.</p></div>
+    <div class="stop"><h3>It's gone</h3><p>We haul it away, unload at a licensed facility and leave the spot clean.</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="area"><div class="wrap split">
+  <div class="intro"><h2>Where we work</h2><p class="lead">Based in Ontario and serving the western Inland Empire and Pomona Valley.</p></div>
+  <div class="chips"><span>Ontario</span><span>Upland</span><span>Rancho Cucamonga</span><span>Montclair</span><span>Chino</span><span>Chino Hills</span><span>Fontana</span><span>Pomona</span><span>Claremont</span><span>Eastvale</span><span>Jurupa Valley</span><span>Rialto</span></div>
+</div></section>
+
+<section class="sec" id="faq"><div class="wrap split">
+  <div class="intro"><h2>Questions</h2></div>
+  <div>
+    <details><summary>How long can I keep the trailer?</summary><p>Rentals are quoted by the day or the week. Tell us your project and we'll suggest the shortest rental that fits.</p></details>
+    <details><summary>Will it damage my driveway?</summary><p>We set boards under the jack stand and park on a level spot you choose. Let us know about soft ground, slopes or tight gates when you book.</p></details>
+    <details><summary>Can I fill it with dirt or concrete?</summary><p>Heavy material fills the trailer's weight limit long before it fills the space. Tell us what you're loading and we'll tell you how high to fill it.</p></details>
+  </div>
+</div></section>
+
+<section class="sec" id="estimate"><div class="wrap">
+  <h2>Instant estimate</h2>
+  <p class="lead" style="margin-top:14px">Pick a service to see a price in seconds. Send it with your quote request and we confirm it from your photos.</p>
+  <div class="calc">
+    <div class="panel">
+      <div><h3 style="margin-bottom:12px">Service</h3><div class="seg">
+        <label class="pill"><input type="radio" name="svc" value="junk" checked><span>Junk removal</span></label>
+        <label class="pill"><input type="radio" name="svc" value="trailer"><span>Dump trailer rental</span></label>
+      </div></div>
+      <div id="junkOpts"><h3 style="margin-bottom:12px">How much junk?</h3><div class="opts">
+        <label class="pill"><input type="radio" name="load" value="min"><span>Minimum, 1 to 2 items</span><span class="p">$113.85</span></label>
+        <label class="pill"><input type="radio" name="load" value="q"><span>Quarter trailer</span><span class="p">$228.85</span></label>
+        <label class="pill"><input type="radio" name="load" value="h" checked><span>Half trailer</span><span class="p">$373.75</span></label>
+        <label class="pill"><input type="radio" name="load" value="tq"><span>Three-quarter trailer</span><span class="p">$517.50</span></label>
+        <label class="pill"><input type="radio" name="load" value="f"><span>Full trailer</span><span class="p">$661.25</span></label>
+      </div></div>
+      <div id="trailerOpts" hidden><h3 style="margin-bottom:12px">How long do you need it?</h3>
+        <label>Rental days<input id="days" type="number" min="1" max="60" value="2" inputmode="numeric"></label>
+        <p class="fine" style="margin-top:10px">$172.50 a day, $632.50 a week. Delivery and pickup $172.50.</p>
+      </div>
+    </div>
+    <div class="panel ttl" aria-live="polite">
+      <span class="soft">Estimated total</span>
+      <div class="big" id="tVal">$0.00</div>
+      <div class="lines" id="tLines"></div>
+      <p class="fine" id="tNote"></p>
+      <button class="btn" type="button" id="useEst">Use this estimate</button>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec" id="quote"><div class="wrap split">
+  <div class="intro">
+    <h2>Get a quote</h2>
+    <p class="lead">Tell us what's going and where. This form prepares an email you can attach photos to.</p>
+    <p class="soft"><b style="color:var(--ink)">Phone</b> <span class="nowrap">(442) 247-1212</span><br><b style="color:var(--ink)">Email</b> crossbusiness11@gmail.com</p>
+  </div>
+  <form id="f" novalidate>
+    <label>Name<input id="name" autocomplete="name" required></label>
+    <label>Phone<input id="phone" type="tel" autocomplete="tel" required></label>
+    <label>Email<input id="email" type="email" autocomplete="email"></label>
+    <label>Service<select id="type"><option>Dump trailer drop-off</option><option>Full-service junk removal</option><option>Not sure yet</option></select></label>
+    <label>City<input id="city" autocomplete="address-level2"></label>
+    <label>Preferred date<input id="date" type="date"></label>
+    <label class="full">What are you getting rid of?<textarea id="details" placeholder="Garage cleanout with an old couch and two dressers, or kitchen remodel debris, about two days of work"></textarea></label>
+    <button class="btn full" type="submit">Prepare my request</button>
+    <p class="note full" id="err" role="alert"></p>
+    <div class="out" id="out" aria-live="polite">
+      <p><b>Your request is ready but not sent yet.</b> <span class="soft">Email it with your photos, or copy it.</span></p>
+      <pre id="summary"></pre>
+      <div class="acts"><a class="btn" id="mail" href="#">Open in email</a><button class="btn ghost" type="button" id="copy">Copy request</button></div>
+    </div>
+  </form>
+</div></section>
+
+<footer><div class="wrap">
+  <div><a class="brand" href="#top">Cross Haul</a><p style="margin-top:8px">Dump trailer rentals and junk removal. Ontario, California.</p></div>
+  <div><p><b style="color:var(--ink)">Phone</b> <span class="nowrap">(442) 247-1212</span><br><b style="color:var(--ink)">Email</b> crossbusiness11@gmail.com<br>Monday to Saturday, 7 am to 6 pm</p></div>
+  <div><p>A sister company of Cross Controls.</p></div>
+</div></footer>
+
+<script>
+{
+  const EMAIL='crossbusiness11@gmail.com';
+  const f=document.getElementById('f'),out=document.getElementById('out'),sum=document.getElementById('summary'),err=document.getElementById('err'),mail=document.getElementById('mail'),copy=document.getElementById('copy');
+  const v=id=>document.getElementById(id).value.trim();
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!v('name')||!v('phone')){err.textContent='Please add your name and phone number so we can reach you.';out.classList.remove('on');return}
+    err.textContent='';
+    const text=[['Name',v('name')],['Phone',v('phone')],['Email',v('email')],['Service',v('type')],['City',v('city')],['Preferred date',v('date')],['Details',v('details')]].filter(r=>r[1]).map(r=>r[0]+': '+r[1]).join('\n');
+    sum.textContent=text;
+    mail.href='mailto:'+EMAIL+'?subject='+encodeURIComponent('Quote request: '+v('type'))+'&body='+encodeURIComponent(text);
+    out.classList.add('on');
+    out.scrollIntoView({block:'nearest'});
+  });
+  copy.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(sum.textContent);copy.textContent='Copied'}catch(x){copy.textContent='Select the text above to copy'}
+  });
+}
+</script>
+<script>
+{
+  const $=id=>document.getElementById(id);const fmt=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+  const LOADS={min:['Minimum load, 1 to 2 items',113.85],q:['Quarter trailer',228.85],h:['Half trailer',373.75],tq:['Three-quarter trailer',517.50],f:['Full trailer',661.25]};
+  const DAY=172.50,WEEK=632.50,DEL=172.50;let summary='';
+  document.querySelectorAll('#estimate input').forEach(i=>{i.addEventListener('input',calc);i.addEventListener('change',calc)});
+  function show(lines,total){$('tVal').textContent=fmt(total);$('tLines').innerHTML=lines.map(l=>'<div><span>'+l[0]+'</span><b>'+fmt(l[1])+'</b></div>').join('')}
+  function calc(){
+    const svc=document.querySelector('input[name=svc]:checked').value;
+    $('junkOpts').hidden=svc!=='junk';$('trailerOpts').hidden=svc!=='trailer';
+    let lines=[],total=0;
+    if(svc==='junk'){
+      const k=document.querySelector('input[name=load]:checked').value,n=LOADS[k][0],p=LOADS[k][1];
+      lines.push([n,p]);total=p;
+      $('tNote').textContent='Estimate only. Includes loading, hauling and disposal. Final price confirmed from your photos.';
+      summary='Junk removal, '+n.toLowerCase()+', '+fmt(total);
+    }else{
+      const d=Math.max(1,Math.min(60,Math.round(+$('days').value||1))),w=Math.floor(d/7),r=d%7,rc=Math.min(r*DAY,WEEK);
+      if(w)lines.push([w+(w>1?' weeks':' week'),w*WEEK]);
+      if(r)lines.push([r+(r>1?' days':' day')+(r*DAY>WEEK?', capped at weekly rate':''),rc]);
+      lines.push(['Delivery and pickup',DEL]);total=w*WEEK+rc+DEL;
+      $('tNote').textContent='Estimate only. Dump fees at the transfer station are passed through at cost.';
+      summary='Dump trailer rental, '+d+(d>1?' days':' day')+', '+fmt(total)+' plus dump fees';
+    }
+    show(lines,total);
+  }
+  $('useEst').addEventListener('click',()=>{const t=$('details');t.value=(t.value?t.value+'\n\n':'')+'Website estimate: '+summary;$('type').value=document.querySelector('input[name=svc]:checked').value==='junk'?'Full-service junk removal':'Dump trailer drop-off';$('quote').scrollIntoView({behavior:'smooth'})});
+  calc();
+}
+</script>
+</body>
+</html>
